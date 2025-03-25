@@ -1,0 +1,35 @@
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  padding-bottom: 0.8rem;
+  border: 0.25rem solid #fff;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  border-radius: 1rem;
+}
+
+.info-item-date {
+  font-size: 1.5rem;
+  color: #dda853;
+}
+
+.info-item-description {
+  font-size: 1.5rem;
+}
+
+.info-item-button {
+  width: fit-content;
+  align-self: center;
+  padding: 0.8rem;
+  font-size: 1.5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.info-item-button:hover {
+  transform: scale(1.1);
+  background-color: #dda853;
+  border: none;
+}

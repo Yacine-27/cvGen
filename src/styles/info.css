@@ -1,0 +1,21 @@
+.info-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  gap: 1.4rem;
+}
+
+.info-set {
+  width: 100%;
+  background-color: #3c3d37;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.info-list {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 1.2rem;
+}

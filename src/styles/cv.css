@@ -1,0 +1,10 @@
+.cv {
+  flex: 3;
+  display: flex;
+  padding-left: 0.6rem;
+  justify-content: space-between;
+}
+
+.info-container {
+  flex: 3;
+}

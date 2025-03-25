@@ -1,0 +1,23 @@
+.forms-container {
+  flex: 1;
+  min-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem;
+  background-color: #3c3d37;
+}
+
+.form-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.form-title img {
+  object-fit: contain;
+  max-width: 3rem;
+}
