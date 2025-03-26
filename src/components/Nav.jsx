@@ -1,5 +1,4 @@
 import "../styles/nav.css";
-import CLose from "../../public/close.svg";
 import Edit from "../../public/edit.svg";
 import Icon from "../../public/icon.svg";
 function Nav({ onToggleForm }) {

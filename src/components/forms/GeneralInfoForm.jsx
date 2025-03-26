@@ -1,5 +1,8 @@
 import { useState } from "react";
-import "../styles/form.css";
+
+import InfoControlItem from "./InfoControlItem";
+
+import "../../styles/forms/form.css";
 
 function GeneralInfoForm({ items, onSubmit, onRemove }) {
   const [showForm, setShowForm] = useState(false);
@@ -30,25 +33,21 @@ function GeneralInfoForm({ items, onSubmit, onRemove }) {
               showForm ? "animate-reveal" : "animate-hide"
             }`}
           >
-            <div className="info-items">
-              <h2 className="info-items-header">Info</h2>
-              <ul className="info-items-list">
-                {items.map((item) => (
-                  <li key={item.id} className="info-items-item animate-reveal">
-                    <p className="info-items-item-name">{item.name}</p>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        onRemove(item.id);
-                      }}
-                      className="info-items-item-button"
-                    >
-                      X
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {items.length > 0 && (
+              <div className="info-items">
+                <h2 className="info-items-header">Info</h2>
+                <ul className="info-items-list">
+                  {items.map((item) => (
+                    <InfoControlItem
+                      key={item.id}
+                      id={item.id}
+                      name={item.name}
+                      onRemove={onRemove}
+                    />
+                  ))}
+                </ul>
+              </div>
+            )}
             <div className="form-widget">
               <label htmlFor="name" className="form-label">
                 Add a new info :{" "}

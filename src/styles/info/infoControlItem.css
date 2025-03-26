@@ -1,0 +1,25 @@
+.info-items-item {
+  display: flex;
+  justify-content: space-between;
+  border: 0.15rem solid #fff;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  align-items: center;
+}
+
+.info-items-item-name {
+  font-size: 1.4rem;
+}
+.info-items-item-button {
+  background-color: inherit;
+  color: inherit;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.info-items-item-button:hover {
+  background-color: #ddd;
+  color: #000;
+}

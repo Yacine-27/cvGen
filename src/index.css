@@ -31,6 +31,36 @@ body {
   height: fit-content;
 }
 
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.animate-reveal {
+  animation: reveal 0.4s ease-out forwards;
+}
+
+.animate-hide {
+  animation: hide 0.3s ease-in forwards;
+}
+
 @media (max-width: 700px) {
   html {
     font-size: 8px;

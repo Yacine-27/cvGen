@@ -1,6 +1,6 @@
-import Person from "../../public/person.svg";
+import Person from "../../../public/person.svg";
 
-import "../styles/generalInfoContainer.css";
+import "../../styles/info/generalInfo.css";
 function GeneralInfo({ info }) {
   return (
     <div className="general-info-container">

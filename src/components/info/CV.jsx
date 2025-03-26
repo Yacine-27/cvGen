@@ -1,10 +1,12 @@
-import Work from "../../public/work.svg";
-import Education from "../../public/graduate.svg";
-
 import GeneralInfo from "./GeneralInfo";
 import InfoItem from "./InfoItem";
-import "../styles/cv.css";
-import "../styles/info.css";
+
+import "../../styles/info/cv.css";
+import "../../styles/info/infoContainer.css";
+
+import Work from "../../../public/work.svg";
+import Education from "../../../public/graduate.svg";
+
 function CV({ info }) {
   return (
     <div className="cv">

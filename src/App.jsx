@@ -1,10 +1,11 @@
-import Nav from "./components/Nav";
-import CV from "./components/CV";
-import GeneralInfoForm from "./components/GeneralInfoForm";
-import SubForm from "./components/SubForm";
 import { useState } from "react";
 
-import "./styles/formsContainer.css";
+import Nav from "./components/Nav";
+import CV from "./components/info/CV";
+import GeneralInfoForm from "./components/forms/GeneralInfoForm";
+import SubForm from "./components/forms/SubForm";
+
+import "./styles/forms/formsContainer.css";
 
 function App() {
   const [info, setInfo] = useState({
@@ -42,7 +43,7 @@ function App() {
     ];
     setInfo({ ...info, [`${section}`]: newArray });
   };
-  const removeItem = (id, section) => {
+  const removeItemSubForm = (id, section) => {
     const newArray = [...info[`${section}`].filter((item) => item.id !== id)];
     setInfo({ ...info, [`${section}`]: newArray });
   };
@@ -64,13 +65,13 @@ function App() {
             <SubForm
               onSubmit={handleSubmitSubForm}
               items={info.education}
-              onRemove={removeItem}
+              onRemove={removeItemSubForm}
               name="education"
             />
             <SubForm
               onSubmit={handleSubmitSubForm}
               items={info.work}
-              onRemove={removeItem}
+              onRemove={removeItemSubForm}
               name="work"
             />
           </div>

@@ -1,5 +1,8 @@
 import { useState } from "react";
-import "../styles/form.css";
+
+import InfoControlItem from "./InfoControlItem";
+
+import "../../styles/forms/form.css";
 
 function SubForm({ onSubmit, name, items, onRemove }) {
   const [inputs, setInputs] = useState({
@@ -43,25 +46,24 @@ function SubForm({ onSubmit, name, items, onRemove }) {
             showForm ? "animate-reveal" : "animate-hide"
           }`}
         >
-          <div className="info-items">
-            <h2 className="info-items-header">Info</h2>
-            <ul className="info-items-list">
-              {items.map((item) => (
-                <li key={item.id} className="info-items-item animate-reveal">
-                  <p className="info-items-item-name">{item.title}</p>
-                  <button
-                    type="button"
-                    onClick={() => {
+          {items.length > 0 && (
+            <div className="info-items">
+              <h2 className="info-items-header">Info</h2>
+              <ul className="info-items-list">
+                {items.map((item) => (
+                  <InfoControlItem
+                    key={item.id}
+                    id={item.id}
+                    name={item.title}
+                    onRemove={() => {
                       onRemove(item.id, name);
                     }}
-                    className="info-items-item-button"
-                  >
-                    X
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+                  />
+                ))}
+              </ul>
+            </div>
+          )}
+
           {error && (
             <h4 className="error-message">
               "To" Year should be less than or equal to "From" year
@@ -88,7 +90,7 @@ function SubForm({ onSubmit, name, items, onRemove }) {
               From:{" "}
             </label>
             <input
-              type="number"
+              type="text"
               id="from"
               name="from"
               value={inputs.from}
@@ -102,7 +104,7 @@ function SubForm({ onSubmit, name, items, onRemove }) {
               To:{" "}
             </label>
             <input
-              type="number"
+              type="text"
               id="to"
               name="to"
               value={inputs.to}
