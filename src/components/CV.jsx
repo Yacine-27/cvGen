@@ -5,14 +5,10 @@ import GeneralInfo from "./GeneralInfo";
 import InfoItem from "./InfoItem";
 import "../styles/cv.css";
 import "../styles/info.css";
-function CV({ info, onRemove }) {
+function CV({ info }) {
   return (
     <div className="cv">
-      <GeneralInfo
-        name={info.generalInfo.name}
-        email={info.generalInfo.email}
-        phone={info.generalInfo.phone}
-      />
+      <GeneralInfo info={info.generalInfo} />
       <div className="info-container">
         <div className="info-set">
           <div className="info-set-header">
@@ -29,11 +25,10 @@ function CV({ info, onRemove }) {
               <InfoItem
                 key={item.id}
                 id={item.id}
+                title={item.title}
                 from={item.from}
                 to={item.to}
                 description={item.description}
-                section="education"
-                onRemove={onRemove}
               />
             ))}
           </ul>
@@ -49,11 +44,10 @@ function CV({ info, onRemove }) {
               <InfoItem
                 key={item.id}
                 id={item.id}
+                title={item.title}
                 from={item.from}
                 to={item.to}
                 description={item.description}
-                section="work"
-                onRemove={onRemove}
               />
             ))}
           </ul>

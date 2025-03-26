@@ -1,8 +1,13 @@
 import { useState } from "react";
 import "../styles/form.css";
 
-function SubForm({ onSubmit, name }) {
-  const [inputs, setInputs] = useState({ from: "", to: "", description: "" });
+function SubForm({ onSubmit, name, items, onRemove }) {
+  const [inputs, setInputs] = useState({
+    title: "",
+    from: "",
+    to: "",
+    description: "",
+  });
   const [error, setError] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const handleInputChange = (event) => {
@@ -16,8 +21,7 @@ function SubForm({ onSubmit, name }) {
     }
     setError(false);
     onSubmit(inputs, name);
-    setInputs({ from: "", to: "", description: "" });
-    setShowForm(false);
+    setInputs({ title: "", from: "", to: "", description: "" });
   };
   const handleToggleForm = () => {
     setShowForm(!showForm);
@@ -39,11 +43,45 @@ function SubForm({ onSubmit, name }) {
             showForm ? "animate-reveal" : "animate-hide"
           }`}
         >
+          <div className="info-items">
+            <h2 className="info-items-header">Info</h2>
+            <ul className="info-items-list">
+              {items.map((item) => (
+                <li key={item.id} className="info-items-item animate-reveal">
+                  <p className="info-items-item-name">{item.title}</p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onRemove(item.id, name);
+                    }}
+                    className="info-items-item-button"
+                  >
+                    X
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
           {error && (
             <h4 className="error-message">
               "To" Year should be less than or equal to "From" year
             </h4>
           )}
+          <div className="form-widget">
+            <label className="form-label" htmlFor="title">
+              {" "}
+              Title:{" "}
+            </label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={inputs.title}
+              onChange={handleInputChange}
+              className="form-input"
+              required
+            />
+          </div>
           <div className="form-widget">
             <label className="form-label" htmlFor="from">
               {" "}
@@ -81,7 +119,6 @@ function SubForm({ onSubmit, name }) {
               type="text"
               id="description"
               name="description"
-              required
               value={inputs.description}
               onChange={handleInputChange}
               className="form-input"

@@ -8,26 +8,32 @@ import "./styles/formsContainer.css";
 
 function App() {
   const [info, setInfo] = useState({
-    generalInfo: {
-      name: "Yacine",
-      email: "leoezzat27@gamil.com",
-      phone: "+201095565540",
-    },
+    generalInfo: [
+      { name: "Name", id: crypto.randomUUID() },
+      { name: "Email", id: crypto.randomUUID() },
+      { name: "Phone", id: crypto.randomUUID() },
+    ],
     education: [],
     work: [],
   });
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const toggleFormOpen = () => {
-    setIsFormOpen(!isFormOpen);
-  };
-  const handleGeneralInfoChange = (event) => {
+  const addGeneralInfoItem = (item) => {
     setInfo({
       ...info,
-      generalInfo: {
+      generalInfo: [
         ...info.generalInfo,
-        [event.target.name]: event.target.value,
-      },
+        { name: item, id: crypto.randomUUID() },
+      ],
     });
+  };
+  const removeGeneralInfoItem = (id) => {
+    const newGeneralInfoArray = info.generalInfo.filter(
+      (item) => item.id !== id
+    );
+    setInfo({ ...info, generalInfo: newGeneralInfoArray });
+  };
+  const toggleFormOpen = () => {
+    setIsFormOpen(!isFormOpen);
   };
   const handleSubmitSubForm = (inputs, section) => {
     const newArray = [
@@ -51,21 +57,28 @@ function App() {
             }`}
           >
             <GeneralInfoForm
-              onChange={handleGeneralInfoChange}
-              info={info.generalInfo}
+              onSubmit={addGeneralInfoItem}
+              items={info.generalInfo}
+              onRemove={removeGeneralInfoItem}
             />
-            <SubForm onSubmit={handleSubmitSubForm} name="education" />
-            <SubForm onSubmit={handleSubmitSubForm} name="work" />
+            <SubForm
+              onSubmit={handleSubmitSubForm}
+              items={info.education}
+              onRemove={removeItem}
+              name="education"
+            />
+            <SubForm
+              onSubmit={handleSubmitSubForm}
+              items={info.work}
+              onRemove={removeItem}
+              name="work"
+            />
           </div>
         )}
-
-        <CV info={info} onRemove={removeItem} />
+        <CV info={info} />
       </div>
     </>
   );
 }
 
 export default App;
-
-//TODO: try removing the general info form
-//TODO: add a title section to the form.

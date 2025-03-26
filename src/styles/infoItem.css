@@ -39,3 +39,7 @@
   background-color: #dda853;
   border: none;
 }
+
+.info-item-title {
+  font-size: 1.8rem;
+}
