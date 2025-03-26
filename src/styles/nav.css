@@ -1,0 +1,24 @@
+nav {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.svg-icon {
+  object-fit: contain;
+  max-width: 3rem;
+  border-radius: 50%;
+}
+
+.icon-wrapper:hover {
+  background-color: #404756;
+}
+
+.icon-wrapper {
+  background-color: inherit;
+  border: none;
+  padding: 1rem;
+  transition: background-color 0.3s ease-in;
+  border-radius: 50%;
+  cursor: pointer;
+}

@@ -10,9 +10,9 @@ function InfoItem({ id, from, to, description, onRemove, section }) {
         onClick={() => {
           onRemove(id, section);
         }}
-        className="info-item-button"
+        className="info-item-remove-button"
       >
-        Remove
+        X
       </button>
     </li>
   );

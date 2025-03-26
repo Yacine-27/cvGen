@@ -1,4 +1,4 @@
-import Generator from "../public/generator.svg";
+import Nav from "./components/Nav";
 import CV from "./components/CV";
 import GeneralInfoForm from "./components/GeneralInfoForm";
 import SubForm from "./components/SubForm";
@@ -16,7 +16,10 @@ function App() {
     education: [],
     work: [],
   });
-
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const toggleFormOpen = () => {
+    setIsFormOpen(!isFormOpen);
+  };
   const handleGeneralInfoChange = (event) => {
     setInfo({
       ...info,
@@ -39,21 +42,30 @@ function App() {
   };
   return (
     <>
-      <div className="forms-container">
-        <div className="form-title">
-          <h1>cv-gen</h1> <img src={Generator} alt="App icon" />
-        </div>
-        <GeneralInfoForm
-          onChange={handleGeneralInfoChange}
-          info={info.generalInfo}
-        />
-        <SubForm onSubmit={handleSubmitSubForm} name="education" />
-        <SubForm onSubmit={handleSubmitSubForm} name="work" />
-      </div>
+      <Nav onToggleForm={toggleFormOpen} />
+      <div className="app-container">
+        {isFormOpen && (
+          <div
+            className={`forms-container ${
+              isFormOpen ? "animate-container-reveal" : "animate-container-hide"
+            }`}
+          >
+            <GeneralInfoForm
+              onChange={handleGeneralInfoChange}
+              info={info.generalInfo}
+            />
+            <SubForm onSubmit={handleSubmitSubForm} name="education" />
+            <SubForm onSubmit={handleSubmitSubForm} name="work" />
+          </div>
+        )}
 
-      <CV info={info} onRemove={removeItem} />
+        <CV info={info} onRemove={removeItem} />
+      </div>
     </>
   );
 }
 
 export default App;
+
+//TODO: try removing the general info form
+//TODO: add a title section to the form.

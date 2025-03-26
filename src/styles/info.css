@@ -1,7 +1,7 @@
 .info-container {
   display: flex;
   flex-direction: column;
-  margin: 1rem;
+  margin: 0 1rem 1rem 1rem;
   gap: 1.4rem;
 }
 
@@ -18,4 +18,20 @@
   flex-direction: column;
   list-style: none;
   gap: 1.2rem;
+}
+
+.info-set-header {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.info-set-icon {
+  object-fit: contain;
+  max-width: 3rem;
+}
+
+.info-set-title {
+  font-size: 2rem;
+  font-weight: 400;
 }

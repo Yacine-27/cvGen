@@ -1,4 +1,5 @@
 .info-item {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
@@ -11,21 +12,26 @@
 
 .info-item-date {
   font-size: 1.5rem;
-  color: #dda853;
 }
 
 .info-item-description {
   font-size: 1.5rem;
 }
 
-.info-item-button {
+.info-item-remove-button {
   width: fit-content;
   align-self: center;
-  padding: 0.8rem;
+  padding: 0.5rem;
   font-size: 1.5rem;
-  border-radius: 2rem;
+  border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  border: 0.15rem solid #fff;
+  background-color: inherit;
+  color: inherit;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.3rem;
 }
 
 .info-item-button:hover {

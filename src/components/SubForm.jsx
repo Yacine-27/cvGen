@@ -17,6 +17,7 @@ function SubForm({ onSubmit, name }) {
     setError(false);
     onSubmit(inputs, name);
     setInputs({ from: "", to: "", description: "" });
+    setShowForm(false);
   };
   const handleToggleForm = () => {
     setShowForm(!showForm);

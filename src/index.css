@@ -12,11 +12,27 @@ html {
 }
 
 body {
-  background-color: #000;
   color: #fff;
+  background-color: #23272f;
 }
 
 #root {
   display: flex;
-  min-height: 100vh;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+}
+
+.app-container > * {
+  height: fit-content;
+}
+
+@media (max-width: 700px) {
+  html {
+    font-size: 8px;
+  }
 }

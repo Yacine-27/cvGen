@@ -1,11 +1,11 @@
 .forms-container {
   flex: 1;
-  min-width: 20rem;
+  max-width: 25rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 1.5rem;
-  background-color: #3c3d37;
+  gap: 1rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
 }
 
 .form-title {
@@ -20,4 +20,41 @@
 .form-title img {
   object-fit: contain;
   max-width: 3rem;
+}
+
+@keyframes container-reveal {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes container-hide {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+.animate-container-reveal {
+  animation: container-reveal 0.4s ease-out forwards;
+}
+
+.animate-container-hide {
+  animation: container-hide 0.4s ease-in forwards;
+}
+
+@media (max-width: 700px) {
+  .forms-container {
+    padding-left: 0.8rem;
+    min-width: 20rem;
+  }
 }
